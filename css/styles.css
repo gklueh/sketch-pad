@@ -53,35 +53,50 @@ table {
 	===============================================
 */
 
-#container {
+body {
+	background: black;
+}
+
+.header {
+	text-align: center;
+	background: black;
+	margin-top: -10px;
+}
+
+.container {
 	height: 640px;
 	width: 640px;
 	border: 10px ridge;
 	margin: auto;
+	display: block;
+	background: white;
 }
 
-.grid {
-	background-color: white;
-	height: 16px;
-	width: 16px;
-	float: left;
+h1 {
+	font: bold 24pt Arial, sans-serif;
+	margin-top: 10px;
+	color: white;
 }
 
-.hover {
-	background-color: red;
-}
-
-
-#left {
-	width: 30px;
+p {
+	font: bold 12pt Arial, sans-serif;
+	color: white;
 }
 
 button {
-	display: block;
-    margin: 10px auto;
+	display: inline-block;
+	margin: 10px auto;
 }
 
+.row {
+	display: flex;
+}
 
+.grid {
+	display: inline-block;
+}
 
-
+.hover {
+	background: green;
+}
 

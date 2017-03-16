@@ -1,23 +1,37 @@
 $(document).ready(function() {
-    for(var x = 0; x < 40; x++) {
-        for(var y = 0; y < 40; y++) {
-            var square = $("<div class='grid'></div>");
-            square.appendTo('#container');
-        }
-    }
-    $('.grid').hover(function() {
-    	$(this).addClass("hover");
-  	});
+    createGrid(20);
 });
 
-function clearGrid() {
-	$('.grid').removeClass("hover");
-	var numSquares = prompt("How many squares per side would you like to make the new grid?");
-
-	for(var a = 0; a < numSquares; a++) {
-        for(var b = 0; b < numSquares; b++) {
-        }
+function createGrid(numSquares) {
+    var row = "<div class='row'></div>";
+    var $container = $('.container');
+    for (var counter = 0; counter < numSquares; counter++) {
+        $container.append(row);
     }
-    var square2 = $("<div class='grid'></div>");
-    square2.replaceWith('#container');
+
+    var $rows = $('.row');
+    for (var counter = 0; counter < numSquares; counter++) {
+        $rows.append("<div class='grid'></div>");
+    }
+
+    var $squares = $('.grid');
+    $squares.css('height', calculate(numSquares));
+    $squares.css('width', calculate(numSquares));
+    $squares.mouseenter(function(){
+        $(this).addClass('hover');
+    });
+}
+
+function calculate(numSquares) {
+    return 640 / (numSquares);
+}
+
+function newGrid() {
+    clearGrid();
+    var gridSize = prompt('To create a newly sized grid (ex. 64x64), enter one number (ex. 64) from 2-249. Default is 20.');
+    createGrid(gridSize);
+}
+
+function clearGrid() {
+	$('.container').empty();
 };
